@@ -17,18 +17,20 @@ class MainWindow(QMainWindow):
         self.show()
 
     def paintEvent(self, event):
-        qp = QPainter()
-        qp.begin(self)
-        self.draw_decorative_text(event, qp)
-        qp.setPen(Qt.darkGreen)
+        painter = QPainter()
+        painter.begin(self)
+        self.draw_decorative_text(event, painter)
+        painter.setPen(Qt.darkGreen)
         size = self.size()
 
         for i in range(10000):
             x = random.randint(1, size.width() - 1)
             y = random.randint(1, size.height() - 1)
-            qp.drawPoint(x, y)
+            painter.drawPoint(x, y)
 
-        qp.end()
+        pawn_image = QPixmap ("./Chess_plt45.png")
+        painter.drawPixmap(100, 10, 50, 50, pawn_image);
+        painter.end()
 
     def draw_decorative_text(self, event, qp):
         qp.setPen(QColor(168, 34, 3))
