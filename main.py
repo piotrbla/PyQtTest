@@ -1,3 +1,5 @@
+import random
+
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -18,6 +20,14 @@ class MainWindow(QMainWindow):
         qp = QPainter()
         qp.begin(self)
         self.draw_decorative_text(event, qp)
+        qp.setPen(Qt.darkGreen)
+        size = self.size()
+
+        for i in range(10000):
+            x = random.randint(1, size.width() - 1)
+            y = random.randint(1, size.height() - 1)
+            qp.drawPoint(x, y)
+
         qp.end()
 
     def draw_decorative_text(self, event, qp):
