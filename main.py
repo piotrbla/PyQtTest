@@ -28,8 +28,8 @@ class MainWindow(QMainWindow):
             y = random.randint(1, size.height() - 1)
             painter.drawPoint(x, y)
 
-        pawn_image = QPixmap ("./Chess_plt45.png")
-        painter.drawPixmap(100, 10, 50, 50, pawn_image);
+        pawn_image = QPixmap("./Chess_plt45.png")
+        painter.drawPixmap(100, 10, 50, 50, pawn_image)
         painter.end()
 
     def draw_decorative_text(self, event, qp):
